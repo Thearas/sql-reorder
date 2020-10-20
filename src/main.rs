@@ -58,10 +58,8 @@ pub async fn main() -> anyhow::Result<()> {
         sql_scripts.push(raw_sqls);
     }
 
-    // one script will be assigned to one client
     let tasks = tasks::gen_all_permutations(&sql_scripts);
 
-    // execute SQLs
     let mut executor = Executor::new(&db_url);
     for task in tasks {
         executor.run_task(task).await?;
