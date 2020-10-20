@@ -1,0 +1,20 @@
+[package]
+name = "sql-reorder"
+version = "0.1.0"
+authors = ["Thearas <thearas850@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1"
+log = { version = "0.4", features = ["release_max_level_debug"] }
+env_logger = "0.8"
+futures = "0.3"
+tokio = { version = "0.2", features = ["full"] }
+sqlx = { version = "0.4.0-beta.1", default-features = false, features = [ "mysql", "runtime-tokio", "tls" ] }
+# there are some bugs in version 0.6
+sqlparser = { git = "https://github.com/ballista-compute/sqlparser-rs", branch = "main" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+argh = "0.1"

@@ -1,0 +1,1 @@
+update X set a=10 where id=8;

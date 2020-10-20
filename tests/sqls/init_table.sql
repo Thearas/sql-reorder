@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS X (
+    id int NOT NULL PRIMARY KEY,
+    a int NOT NULL
+);
+INSERT INTO X(id, a) VALUES (1, 0);
+INSERT INTO X(id, a) VALUES (2, 0);
+INSERT INTO X(id, a) VALUES (8, 0);
