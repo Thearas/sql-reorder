@@ -48,14 +48,14 @@ pub async fn main() -> anyhow::Result<()> {
         // NOTE: It's better to use https://github.com/pingcap/parser, but it was written in Go:(
         // TODO: Fully support TiDB syntax.
         let stmts = Parser::parse_sql(&MySqlDialect {}, &sqls)?;
-        let raw_sqls = stmts
+        let stmts = stmts
             .into_iter()
             .map(|s| SQLStatement {
                 client_id: i,
                 stmt: s.to_string(),
             })
             .collect();
-        sql_scripts.push(raw_sqls);
+        sql_scripts.push(stmts);
     }
 
     let tasks = tasks::gen_all_permutations(&sql_scripts);
